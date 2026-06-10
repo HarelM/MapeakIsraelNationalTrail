@@ -8,7 +8,7 @@
       "tiles": ["https://mapeak.com/vector/data/IHM-code/{z}/{x}/{y}.mvt"],
       "maxzoom": 14,
       "attribution": "<a href=\"https://www.openmaptiles.org/\" target=\"_blank\">&copy; OpenMapTiles</a> <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\">&copy; OpenStreetMap contributors</a>"
-    },
+    }
   },
   "sprite": "",
   "layers": [
@@ -71,7 +71,7 @@
           "stops": [[11, 6], [12, 9], [16, 24], [22, 94]]
         }
       }
-    },
+    }
   ],
   "id": "floods"
 }
