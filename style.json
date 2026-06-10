@@ -1,53 +1,77 @@
 {
   "version": 8,
-  "name": "Floods",
-  "metadata": {
-    "maputnik:renderer": "mbgljs",
-    "openmaptiles:version": "3.x"
-  },
+  "name": "Israel-National-Trail",
   "sources": {
-    "floodpoints": {
-      "type": "geojson",
-      "data": "https://raw.githack.com/HarelM/IHMMapboxMapExample/main/source.geojson"
-    }
+    "code": {
+      "type": "vector",
+      "url": "https://mapeak.com/vector/data/IHM-code.json",
+      "tiles": ["https://mapeak.com/vector/data/IHM-code/{z}/{x}/{y}.mvt"],
+      "maxzoom": 14,
+      "attribution": "<a href=\"https://www.openmaptiles.org/\" target=\"_blank\">&copy; OpenMapTiles</a> <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\">&copy; OpenStreetMap contributors</a>"
+    },
   },
   "sprite": "",
-  "glyphs": "https://israelhikingmap.osm.org.il/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
-      "id": "bg",
-      "type": "background",
-      "metadata": {"IHM:overlay": false},
-      "paint": {"background-color": "blue"}
-    },
-    {
-      "id": "water-area-name",
-      "type": "symbol",
-      "source": "floodpoints",
-      "layout": {
-        "text-field": ["get", "text"],
-        "symbol-placement": "point",
-        "text-font": ["Open Sans Cond Bold"],
-        "text-size": 18,
-        "text-letter-spacing": 0.3,
-        "text-max-width": 5,
-        "text-offset": [0, 3]
-      },
+      "id": "trail-israel-secondary-",
+      "type": "line",
+      "metadata": {"IHM:overlay": true},
+      "source": "code",
+      "source-layer": "trail",
+      "minzoom": 5,
+      "filter": [
+        "all",
+        ["==", "osmc_symbol", "orange:orange:white_right:blue_stripe"],
+        [
+          "!in",
+          "highway",
+          "primary",
+          "trunk",
+          "motorway",
+          "primary_link",
+          "trunk_link",
+          "motorway_link"
+        ]
+      ],
+      "layout": {"line-cap": "round"},
       "paint": {
-        "text-color": "blue",
-        "text-halo-color": "white",
-        "text-halo-width": 1.5,
-        "text-halo-blur": 1
+        "line-color": "#FFC264",
+        "line-width": {
+          "base": 2,
+          "stops": [[11, 6], [12, 9], [16, 16], [22, 80]]
+        }
       }
     },
     {
-      "id": "water-area-icon",
-      "type": "symbol",
-      "source": "floodpoints",
-      "layout": {
-        "icon-image": "https://avatars.githubusercontent.com/u/13288969?s=64&v=4"
+      "id": "trail-israel-primary+",
+      "type": "line",
+      "metadata": {"IHM:overlay": true},
+      "source": "code",
+      "source-layer": "trail",
+      "minzoom": 5,
+      "filter": [
+        "all",
+        ["==", "osmc_symbol", "orange:orange:white_right:blue_stripe"],
+        [
+          "in",
+          "highway",
+          "primary",
+          "trunk",
+          "motorway",
+          "primary_link",
+          "trunk_link",
+          "motorway_link"
+        ]
+      ],
+      "layout": {"line-cap": "round"},
+      "paint": {
+        "line-color": "#FFC264",
+        "line-width": {
+          "base": 2,
+          "stops": [[11, 6], [12, 9], [16, 24], [22, 94]]
+        }
       }
-    }
+    },
   ],
   "id": "floods"
 }
