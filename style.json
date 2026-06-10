@@ -2,12 +2,9 @@
   "version": 8,
   "name": "Israel-National-Trail",
   "sources": {
-    "code": {
+    "IHM": {
       "type": "vector",
-      "url": "https://mapeak.com/vector/data/IHM-code.json",
-      "tiles": ["https://mapeak.com/vector/data/IHM-code/{z}/{x}/{y}.mvt"],
-      "maxzoom": 14,
-      "attribution": "<a href=\"https://www.openmaptiles.org/\" target=\"_blank\">&copy; OpenMapTiles</a> <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\">&copy; OpenStreetMap contributors</a>"
+      "url": "https://israelhiking.osm.org.il/vector/data/IHM.json"
     }
   },
   "sprite": "",
@@ -16,7 +13,7 @@
       "id": "trail-israel-secondary-",
       "type": "line",
       "metadata": {"IHM:overlay": true},
-      "source": "code",
+      "source": "IHM",
       "source-layer": "trail",
       "minzoom": 5,
       "filter": [
@@ -46,7 +43,7 @@
       "id": "trail-israel-primary+",
       "type": "line",
       "metadata": {"IHM:overlay": true},
-      "source": "code",
+      "source": "IHM",
       "source-layer": "trail",
       "minzoom": 5,
       "filter": [
